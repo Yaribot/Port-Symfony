@@ -25,7 +25,39 @@ class DefaultController extends Controller
      */
     public function adminAction()
     {
-        return $this->render('@PORTFOLIO/Admin/form-connexion.html.twig');
+        // $auth = $this->get('security.authentication_utils');
+
+        // $UserPseudo = $auth->getUserPseudo();
+        // // Récupérer le pseudo tapé...
+
+        // $error = $auth-> getLastAuthenticationError();
+        // // Récupérer l'erreur si il y en a une
+
+        // if(!empty($error))
+        // {
+        //     $request->getSession()->getFlashBag()->add('errors', 'Erreur d\'identifiant ! ');
+        // }
+
+        // $auth = $this->get('security.authentication_utils');
+
+        // $UserPassword = $auth->getUserPassword();
+        // // Récupérer le pseudo tapé...
+
+        // $error = $auth-> getLastAuthenticationError();
+        // // Récupérer l'erreur si il y en a une
+
+        // if(!empty($error))
+        // {
+        //     $request->getSession()->getFlashBag()->add('errors', 'Erreur de mot de passe ! ');
+        // }
+
+
+        // $params = array(
+        //     'UserPseudo' => $UserPseudo,
+        //     'UserPassword' => $UserPassword
+        // );
+      
+        return $this->render('@PORTFOLIO/Admin/form-connexion.html.twig', $params);
     }
 
     /**
