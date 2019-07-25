@@ -10,6 +10,9 @@ use AppBundle\Entity\Projects;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 
+use PORTFOLIO\Entity\User;
+use PORTFOLIO\Form\UserType;
+
 class DefaultController extends Controller
 {
     /**
@@ -56,8 +59,21 @@ class DefaultController extends Controller
         //     'UserPseudo' => $UserPseudo,
         //     'UserPassword' => $UserPassword
         // );
+
+
+        
+
+        // $user = new User;
+
+        // $form = $this->createForm(UserType::class, $user);
+
+        // $form->handleRequest($request);
+
+        // $params = array(
+        //     'UserForm' => $form->createView()           
+        // );
       
-        return $this->render('@PORTFOLIO/Admin/form-connexion.html.twig', $params);
+        // return $this->render('@PORTFOLIO/Admin/form-connexion.html.twig', $params);
     }
 
     /**

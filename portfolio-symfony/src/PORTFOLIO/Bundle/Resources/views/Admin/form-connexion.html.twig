@@ -13,21 +13,23 @@
     <div class="container comp">
         <h3 class="display-4 text-center">CONNEXION</h3><hr><br>
 
-        <form class="p-5 col-12" method="post" action="">
+        <form class="p-5 col-12" method="post" action="{{ path('connexion') }}">
             <div class="form-row">
-                <div class="form-group col-md-6">
+                <div class="form-group col-md-6 offset-md-3">
                     <label for="exampleInputEmail1">Pseudo</label>
-                    <input type="text" class="form-control" name="upseudo" placeholder="Enter pseudo" value="">
+                    <input type="text" class="form-control" name="_username" placeholder="Enter pseudo" value="{{ lastUserName }}">
                 </div>
-                <div class="form-group col-md-6">
-                    <label for="exampleInputEmail1">Password</label>
-                    <input type="password" class="form-control" name="upassword" placeholder="Mot de passe">
-                </div>
-                <button type="submit" class="btn btn-dark col-md-4 offset-md-4">Connexion</button>
             </div>
+            <div class="form-row">
+                <div class="form-group col-md-6 offset-md-3">
+                    <label for="exampleInputEmail1">Password</label>
+                    <input type="password" class="form-control" name="_password" placeholder="Mot de passe">
+                </div>
+            </div><br>
+                <button type="submit" class="btn btn-dark col-md-4 offset-md-4">Connexion</button>
         </form>
 
-        {{form(UserForm)}}
+        {# {{form(UserForm)}} #}
 
     </div>
 </div>

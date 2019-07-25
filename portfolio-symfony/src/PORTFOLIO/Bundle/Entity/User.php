@@ -3,6 +3,7 @@
 namespace PORTFOLIO\Bundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * User
@@ -10,7 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="user")
  * @ORM\Entity(repositoryClass="PORTFOLIO\Bundle\Repository\UserRepository")
  */
-class User
+class User implements UserInterface
 {
     /**
      * @var integer
@@ -218,4 +219,27 @@ class User
     {
         return $this->statut;
     }
+
+    public function setRoles(array $roles){
+		$this -> roles = $roles;
+		return $this; 
+	}
+	
+	public function getRoles(){
+		$roles = $this -> roles; 
+		//$roles[] = 'ROLE_USER';
+		return $this -> roles; 
+    }
+    
+    
+    public function eraseCredentials(){}
+	
+	public function setSalt($salt){
+		$this -> salt = $salt;
+		return $this;
+	}
+	
+	public function getSalt(){
+		return $this -> salt; 
+	}
 }

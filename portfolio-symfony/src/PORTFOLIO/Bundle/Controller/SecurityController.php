@@ -1,13 +1,13 @@
 <?php
 
-namespace AppBundle\Controller;
+namespace PORTFOLIO\Bundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
-use AppBundle\Entity\User;
-use AppBundle\Form\UserType;
+use PORTFOLIO\Entity\User;
+use PORTFOLIO\Form\UserType;
 
 class SecurityController extends Controller
 {
@@ -18,7 +18,7 @@ class SecurityController extends Controller
     {
         $auth = $this->get('security.authentication_utils');
 
-        $UserPseudo = $auth->getUserPseudo();
+        $lastUserName = $auth->getLastUserName();
         // Récupérer le pseudo tapé...
 
         $error = $auth-> getLastAuthenticationError();
@@ -30,7 +30,7 @@ class SecurityController extends Controller
         }
 
         $params = array(
-            'UserPseudo' => $UserPseudo 
+            'lastUserName' => $lastUserName 
         );
         return $this-> render('@PORTFOLIO/Admin/form-connexion.html.twig', $params);
 
