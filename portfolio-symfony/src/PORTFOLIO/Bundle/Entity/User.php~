@@ -45,16 +45,16 @@ class User
     /**
      * @var string
      *
-     * @ORM\Column(name="upassword", type="string", length=20, nullable=false)
+     * @ORM\Column(name="password", type="string", length=20, nullable=false)
      */
-    private $upassword;
+    private $password;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="upseudo", type="string", length=30, nullable=false)
+     * @ORM\Column(name="username", type="string", length=30, nullable=false)
      */
-    private $upseudo;
+    private $username;
 
     /**
      * @var integer

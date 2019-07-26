@@ -5,11 +5,11 @@ namespace PORTFOLIO\Bundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 
-use AppBundle\Entity\Projects;
-
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 
+use PORTFOLIO\Entity\Projects;
+use PORTFOLIO\Entity\Competence;
 use PORTFOLIO\Entity\User;
 use PORTFOLIO\Form\UserType;
 
@@ -105,6 +105,9 @@ class DefaultController extends Controller
      */
     public function competenceAction()
     {
+        $repo = $this->getDoctrine()->getRepository(Competence::class);
+        $produits = $repo->findAll();
+
         return $this->render('@PORTFOLIO/Default/competences.html.twig');
     }
 

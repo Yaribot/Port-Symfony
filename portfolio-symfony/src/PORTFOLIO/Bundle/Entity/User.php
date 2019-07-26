@@ -3,7 +3,6 @@
 namespace PORTFOLIO\Bundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * User
@@ -46,16 +45,16 @@ class User implements UserInterface
     /**
      * @var string
      *
-     * @ORM\Column(name="upassword", type="string", length=20, nullable=false)
+     * @ORM\Column(name="password", type="string", length=20, nullable=false)
      */
-    private $upassword;
+    private $password;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="upseudo", type="string", length=30, nullable=false)
+     * @ORM\Column(name="username", type="string", length=30, nullable=false)
      */
-    private $upseudo;
+    private $username;
 
     /**
      * @var integer
@@ -63,6 +62,46 @@ class User implements UserInterface
      * @ORM\Column(name="statut", type="integer", nullable=false)
      */
     private $statut;
+
+    /**
+	* @ORM\Column(name="roles", type="array")
+	*
+	*/
+	private $roles = array();
+	
+	/**
+	*
+	* @ORM\Column(name="salt", type="string", length=256, nullable=true)
+	*/
+    private $salt; 
+    
+    
+	public function setRoles(array $roles){
+		$this -> roles = $roles;
+		return $this; 
+	}
+	
+	public function getRoles(){
+		$roles = $this -> roles; 
+		//$roles[] = 'ROLE_USER';
+		return $this -> roles; 
+	}
+	
+	/**
+	* Fonction obligatoire liée à l'interface UserInterface
+	*
+	*/
+	public function eraseCredentials(){}
+	
+	
+	public function setSalt($salt){
+		$this -> salt = $salt;
+		return $this;
+	}
+	
+	public function getSalt(){
+		return $this -> salt; 
+	}
 
 
 
@@ -149,51 +188,51 @@ class User implements UserInterface
     }
 
     /**
-     * Set upassword
+     * Set password
      *
-     * @param string $upassword
+     * @param string $password
      *
      * @return User
      */
-    public function setUpassword($upassword)
+    public function setPassword($password)
     {
-        $this->upassword = $upassword;
+        $this->password = $password;
 
         return $this;
     }
 
     /**
-     * Get upassword
+     * Get password
      *
      * @return string
      */
-    public function getUpassword()
+    public function getPassword()
     {
-        return $this->upassword;
+        return $this->password;
     }
 
     /**
-     * Set upseudo
+     * Set username
      *
-     * @param string $upseudo
+     * @param string $username
      *
      * @return User
      */
-    public function setUpseudo($upseudo)
+    public function setUsername($username)
     {
-        $this->upseudo = $upseudo;
+        $this->username = $username;
 
         return $this;
     }
 
     /**
-     * Get upseudo
+     * Get username
      *
      * @return string
      */
-    public function getUpseudo()
+    public function getUsername()
     {
-        return $this->upseudo;
+        return $this->username;
     }
 
     /**
@@ -219,27 +258,4 @@ class User implements UserInterface
     {
         return $this->statut;
     }
-
-    public function setRoles(array $roles){
-		$this -> roles = $roles;
-		return $this; 
-	}
-	
-	public function getRoles(){
-		$roles = $this -> roles; 
-		//$roles[] = 'ROLE_USER';
-		return $this -> roles; 
-    }
-    
-    
-    public function eraseCredentials(){}
-	
-	public function setSalt($salt){
-		$this -> salt = $salt;
-		return $this;
-	}
-	
-	public function getSalt(){
-		return $this -> salt; 
-	}
 }

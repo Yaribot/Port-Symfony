@@ -53,10 +53,10 @@ class UserController extends Controller
         $form->handleRequest($request);
 
         $params = array(
-            'UserForm' => $form->createView()           
+            'userForm' => $form->createView()           
         );
       
-        return $this->render('@PORTFOLIO/Admin/form-connexion.html.twig', $params);
+        return $this->render('@PORTFOLIO/Bundle/Admin/form-connexion.html.twig', $params);
 
         
 
