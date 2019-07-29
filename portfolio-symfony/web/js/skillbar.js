@@ -1,5 +1,5 @@
 
-    alert('jquery ok !');
+    
 
     jQuery(document).ready(function () {
         jQuery('.skillbar').each(function () {
