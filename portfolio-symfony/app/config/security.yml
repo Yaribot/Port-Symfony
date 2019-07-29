@@ -8,16 +8,16 @@ security:
 
     # https://symfony.com/doc/current/security.html#b-configuring-how-users-are-loaded
     providers:
-        # in_memory:
-        #     memory: 
-        #         users: 
-        #             Yannis:
-        #                 password: 123456
-        #                 roles: 'ROLE_USER'
+        in_memory:
+            memory: 
+                users: 
+                    Yannis:
+                        password: 123456
+                        roles: 'ROLE_USER'
         
-        #             admin:
-        #                 password: admin
-        #                 roles: 'ROLE_ADMIN'
+                    admin:
+                        password: admin
+                        roles: 'ROLE_ADMIN'
 
         folio_provider:
             entity:

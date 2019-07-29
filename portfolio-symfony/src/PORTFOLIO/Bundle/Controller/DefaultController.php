@@ -105,8 +105,11 @@ class DefaultController extends Controller
      */
     public function competenceAction()
     {
-        $repo = $this->getDoctrine()->getRepository(Competence::class);
-        $produits = $repo->findAll();
+        //1 : Récupérer les infos
+        // $repo = $this->getDoctrine()->getRepository(Competence::class);
+        // $produits = $repo->findAll();
+
+        
 
         return $this->render('@PORTFOLIO/Default/competences.html.twig');
     }

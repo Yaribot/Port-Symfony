@@ -13,11 +13,11 @@
     <div class="container comp">
         <h3 class="display-4 text-center">CONNEXION</h3><hr><br>
 
-        <form class="p-5 col-12" method="post" action="{{ path('connexion') }}">
+        <form class="p-5 col-12" method="post" action="{{ path('connexion_check') }}">
             <div class="form-row">
                 <div class="form-group col-md-6 offset-md-3">
                     <label for="exampleInputEmail1">Pseudo</label>
-                    <input type="text" class="form-control" name="_username" placeholder="Enter pseudo" value="{{ lastUserName }}">
+                    <input type="text" class="form-control" name="_username" placeholder="Enter pseudo" value="{{ last_username }}">
                 </div>
             </div>
             <div class="form-row">

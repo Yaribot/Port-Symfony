@@ -30,7 +30,7 @@ class SecurityController extends Controller
         }
 
         $params = array(
-            'lastUserName' => $lastUserName
+            'last_username' => $lastUserName
         );
         return $this-> render('@PORTFOLIO/Admin/form-connexion.html.twig', $params);
 
