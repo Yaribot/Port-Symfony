@@ -32,8 +32,7 @@
                 <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%"><span>Wordpress</span></div>
             </div><br>
 
-
-
+                
 
             <div class="skillbar clearfix " data-percent="80%">
                 <div class="skillbar-title" style="background: #d35400;"><span>HTML5</span></div>
@@ -79,9 +78,12 @@
         </div>
     </div>
 
-        {% block javascript %}
-        {# <script type="text/javascript" src="javascript.js"></script> #}
-        <script src="{{ asset('../../../../../../web/js/skillbar.js') }}"></script>
+        {% block javascripts %}
+
+            {% javascripts '../../../../../../web/js/skillbar.js' %}
+                <script type="text/javascript" src="javascript.js"></script>
+                <script src="{{ asset_url }}"></script>
+            {% endjavascripts %}
         
         {% endblock %}
     

@@ -9,7 +9,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 
 use PORTFOLIO\Entity\Projects;
-use PORTFOLIO\Entity\Competence;
+use PORTFOLIO\Bundle\Entity\Competences;
 use PORTFOLIO\Entity\User;
 use PORTFOLIO\Form\UserType;
 
@@ -103,15 +103,20 @@ class DefaultController extends Controller
     /**
      * @Route("/competence/", name="competence")
      */
-    public function competenceAction()
+    public function competencesAction()
     {
-        //1 : Récupérer les infos
-        // $repo = $this->getDoctrine()->getRepository(Competence::class);
-        // $produits = $repo->findAll();
+        // 1 : Récupérer les infos
+        $competences = new Competences;
+        $repo = $this->getDoctrine()->getRepository(Competences::class);
+        $competences = $repo->findAll();
 
         
+        $params = array(
+            'competences' => $competences
+        );
+        
 
-        return $this->render('@PORTFOLIO/Default/competences.html.twig');
+        return $this->render('@PORTFOLIO/Default/competences.html.twig', $params);
     }
 
     /**
