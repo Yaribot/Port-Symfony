@@ -50,5 +50,110 @@ class Formation
     private $formdescription;
 
 
-}
 
+    /**
+     * Get idformation
+     *
+     * @return integer
+     */
+    public function getIdformation()
+    {
+        return $this->idformation;
+    }
+
+    /**
+     * Set formtitre
+     *
+     * @param string $formtitre
+     *
+     * @return Formation
+     */
+    public function setFormtitre($formtitre)
+    {
+        $this->formtitre = $formtitre;
+
+        return $this;
+    }
+
+    /**
+     * Get formtitre
+     *
+     * @return string
+     */
+    public function getFormtitre()
+    {
+        return $this->formtitre;
+    }
+
+    /**
+     * Set formsoustitre
+     *
+     * @param string $formsoustitre
+     *
+     * @return Formation
+     */
+    public function setFormsoustitre($formsoustitre)
+    {
+        $this->formsoustitre = $formsoustitre;
+
+        return $this;
+    }
+
+    /**
+     * Get formsoustitre
+     *
+     * @return string
+     */
+    public function getFormsoustitre()
+    {
+        return $this->formsoustitre;
+    }
+
+    /**
+     * Set formdate
+     *
+     * @param \DateTime $formdate
+     *
+     * @return Formation
+     */
+    public function setFormdate($formdate)
+    {
+        $this->formdate = $formdate;
+
+        return $this;
+    }
+
+    /**
+     * Get formdate
+     *
+     * @return \DateTime
+     */
+    public function getFormdate()
+    {
+        return $this->formdate;
+    }
+
+    /**
+     * Set formdescription
+     *
+     * @param string $formdescription
+     *
+     * @return Formation
+     */
+    public function setFormdescription($formdescription)
+    {
+        $this->formdescription = $formdescription;
+
+        return $this;
+    }
+
+    /**
+     * Get formdescription
+     *
+     * @return string
+     */
+    public function getFormdescription()
+    {
+        return $this->formdescription;
+    }
+}

@@ -36,5 +36,62 @@ class Competences
     private $cplevel;
 
 
-}
 
+    /**
+     * Get idcompetence
+     *
+     * @return integer
+     */
+    public function getIdcompetence()
+    {
+        return $this->idcompetence;
+    }
+
+    /**
+     * Set cptechnology
+     *
+     * @param string $cptechnology
+     *
+     * @return Competences
+     */
+    public function setCptechnology($cptechnology)
+    {
+        $this->cptechnology = $cptechnology;
+
+        return $this;
+    }
+
+    /**
+     * Get cptechnology
+     *
+     * @return string
+     */
+    public function getCptechnology()
+    {
+        return $this->cptechnology;
+    }
+
+    /**
+     * Set cplevel
+     *
+     * @param integer $cplevel
+     *
+     * @return Competences
+     */
+    public function setCplevel($cplevel)
+    {
+        $this->cplevel = $cplevel;
+
+        return $this;
+    }
+
+    /**
+     * Get cplevel
+     *
+     * @return integer
+     */
+    public function getCplevel()
+    {
+        return $this->cplevel;
+    }
+}

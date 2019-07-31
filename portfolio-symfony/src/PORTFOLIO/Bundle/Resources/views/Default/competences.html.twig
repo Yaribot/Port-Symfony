@@ -15,11 +15,19 @@
         <div class="container comp">
 
             <h3 class="display-4 text-center">Programation</h3><br><hr>
+            <div class="skillbars">
+                {% for cpt in competences %}
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="{{ cpt.cplevel }}" aria-valuemin="0" aria-valuemax="100" style="width: {{ cpt.cplevel }}%"><span>{{ cpt.cptechnology }}</span></div>
+                    </div><br>
+                {% endfor %}
+            </div>
 
-            <div class="progress">
+
+            {# <div class="progress">
                 <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%"><span>HTML5</span></div>
-            </div><br>
-            <div class="progress">
+            </div><br> #}
+            {# <div class="progress">
                 <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%"><span>CSS3</span></div>
             </div><br>
             <div class="progress">
@@ -30,9 +38,9 @@
             </div><br>
             <div class="progress">
                 <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%"><span>Wordpress</span></div>
-            </div><br>
+            </div><br> #}
 
-                
+                {# <div>{{ competences.cplevel }}</div> #}
 
             <div class="skillbar clearfix " data-percent="80%">
                 <div class="skillbar-title" style="background: #d35400;"><span>HTML5</span></div>
@@ -81,7 +89,7 @@
         {% block javascripts %}
 
             {% javascripts '../../../../../../web/js/skillbar.js' %}
-                <script type="text/javascript" src="javascript.js"></script>
+                {# <script type="text/javascript" src="javascript.js"></script> #}
                 <script src="{{ asset_url }}"></script>
             {% endjavascripts %}
         
