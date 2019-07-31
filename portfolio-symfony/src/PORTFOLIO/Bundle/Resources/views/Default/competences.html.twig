@@ -14,14 +14,14 @@
 
         <div class="container comp">
 
-            <h3 class="display-4 text-center">Programation</h3><br><hr>
-            <div class="skillbars">
+            <h3 class="display-4 text-center">Programmation</h3><br><hr>
+            {# <div class="skillbars">
                 {% for cpt in competences %}
                     <div class="progress">
                         <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="{{ cpt.cplevel }}" aria-valuemin="0" aria-valuemax="100" style="width: {{ cpt.cplevel }}%"><span>{{ cpt.cptechnology }}</span></div>
                     </div><br>
                 {% endfor %}
-            </div>
+            </div> #}
 
 
             {# <div class="progress">
@@ -42,7 +42,19 @@
 
                 {# <div>{{ competences.cplevel }}</div> #}
 
-            <div class="skillbar clearfix " data-percent="80%">
+
+             <div class="skillbars">
+                {% for cpt in competences %}
+                    {% set color = ['#3498db', '#2c3e50', '#5a68a5', '#525252', '#2ecc71', '#4288d0'] %}
+                    <div class="skillbar clearfix " data-percent="{{ cpt.cplevel }}%">
+                        <div class="skillbar-title" style="background: #d35400;"><span>{{ cpt.cptechnology }}</span></div>
+                        <div class="skillbar-bar" style="background: #e67e22;"></div>
+                        <div class="skill-bar-percent">{{ cpt.cplevel }}%</div>
+                    </div><br> <!-- End Skill Bar -->
+                {% endfor %}
+            </div>
+
+            {# <div class="skillbar clearfix " data-percent="80%">
                 <div class="skillbar-title" style="background: #d35400;"><span>HTML5</span></div>
                 <div class="skillbar-bar" style="background: #e67e22;"></div>
                 <div class="skill-bar-percent">80%</div>
@@ -82,16 +94,27 @@
                 <div class="skillbar-title" style="background: #124e8c;"><span>Photoshop</span></div>
                 <div class="skillbar-bar" style="background: #4288d0;"></div>
                 <div class="skill-bar-percent">65%</div>
-            </div><br> <!-- End Skill Bar -->
+            </div><br> <!-- End Skill Bar --> #}
         </div>
     </div>
 
         {% block javascripts %}
+        
+        {# <script src="./../../../../../../web/js/skillbar.js"></script> #}
 
-            {% javascripts '../../../../../../web/js/skillbar.js' %}
+            <script>jQuery(document).ready(function () {
+                jQuery('.skillbar').each(function () {
+                    jQuery(this).find('.skillbar-bar').animate({
+                        width: jQuery(this).attr('data-percent')
+                    }, 3000);
+                });
+            });</script>
+
+            {# {% javascripts %}
                 {# <script type="text/javascript" src="javascript.js"></script> #}
-                <script src="{{ asset_url }}"></script>
-            {% endjavascripts %}
+                {# <script src="{{ asset_url }}"></script> #}
+                
+            {# {% endjavascripts %} #}
         
         {% endblock %}
     
