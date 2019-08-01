@@ -39,7 +39,7 @@ h2{
     margin-bottom: 0;
 }
 /* --------------------------- PARALLAX EFFECT --------------------------------*/
-.imgTitle{
+/* .imgTitle{
     height:30em;
     overflow:hidden;
     position:relative;
@@ -53,7 +53,7 @@ h2{
     -ms-transform: translate(-50%, -10%);
     transform: translate(-50%, -10%);
     position:absolute;
-}
+} */
 /* --------------------------- END PARALLAX EFFECT --------------------------------*/
 
 /* --------------------------- SKILLBAR EFFECT --------------------------------*/

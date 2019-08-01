@@ -5,67 +5,63 @@ namespace PORTFOLIO\Bundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+// use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 use PORTFOLIO\Entity\User;
 use PORTFOLIO\Form\UserType;
 
+use PORTFOLIO\Bundle\Entity\Competences;
+
+use PORTFOLIO\Bundle\Form\CompetencesType;
+
 class UserController extends Controller
 {
     /** 
-     * @Route("/user/", name="user")
+     * @Route("/user/competence/", name="user-competence")
      */
-    public function UserAction(Request $request)
+    public function UserCompetenceAction()
     {
-        // $user = new user;
+        $repo = $this->getDoctrine()->getRepository(Competences::class);
+        $competences = $repo->findAll();
 
-        // $form = $this->createForm(UserType::class, $user);
 
-        // $form->handleRequest($request);
+        $params = array(
+            'competences' => $competences
+        );
+      
+        return $this->render('@PORTFOLIO/Admin/list-competence.html.twig', $params);
 
-        // if ($form->isSubmitted() && $form->isValid())
-        // {
+    }
 
-        //     $em = $this->getDoctrine()->getManager(); // On récup le manager 
-        //     $em->persist($user); // On enregistre dans le systeme l'objet
+    /** 
+     * @Route("/user/competence/add", name="user-add-competence")
+     */
+    public function adminCompetenceAddAction(Request $request)
+    {
+        $competence = new Competences;
 
-        //     $password = $user->getPassword();
-        //     // password saisie dans le formulaire
-
-        //     $password_crypte = $encoder->encodePassword($membre, $password);
-        //     // j'encode le password
-
-        //     $user->setPassword($password_crypte);
-
-        //     $user->setSalt(NULL);
-        //     $user->setRoles(['ROLE_USER']);
-        //     // On définit un role par défaut
-
-        //     $em->flush();
-
-        //     $request->getsession()->getFlashBag()->add('success', 'Félicitation ' . $user->getPrenom() . ', vous êtes bien enregisté !!');
-        //     return $this->redirectToRoute('inscription');
-
-        $user = new User;
-
-        $form = $this->createForm(UserType::class, $user);
+        $form = $this->createForm(CompetencesType::class, $competence);
 
         $form->handleRequest($request);
 
+        if ($form->isSubmitted() && $form->isValid())
+        {
+
+            $em = $this->getDoctrine()->getManager(); // On récup le manager 
+            $em->persist($competence); // On enregistre dans le systeme l'objet
+
+            $em->flush();
+
+            $request->getsession()->getFlashBag()->add('success', 'la compétence ' . $competence->getId() . ' a bien été ajouté !');
+            return $this->redirectToRoute('user-competence');
+        }
+
         $params = array(
-            'userForm' => $form->createView()           
+            'competencesForm' => $form->createView(),
+            'title' => 'AJOUTER UNE COMPETENCE'
         );
-      
-        return $this->render('@PORTFOLIO/Bundle/Admin/form-connexion.html.twig', $params);
 
-        
-
-
-        // $params = array(
-        //     'userForm' => $form->createView(),
-        //     'title' => 'INSCRIPTION'
-        // );
-        // return $this->render('@PORTFOLIO/Admin/form-connexion.html.twig', $params);
+        return $this->render('@PORTFOLIO/Admin/form-competence.html.twig', $params);
     }
 
     
