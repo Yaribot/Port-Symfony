@@ -36,9 +36,9 @@ class Formation
     private $formsoustitre;
 
     /**
-     * @var \DateTime
+     * @var integer
      *
-     * @ORM\Column(name="formdate", type="date", nullable=false)
+     * @ORM\Column(name="formdate", type="integer", length=4 ,nullable=false)
      */
     private $formdate;
 

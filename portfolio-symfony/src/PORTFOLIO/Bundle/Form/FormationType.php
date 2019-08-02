@@ -6,6 +6,13 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
+
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+
+use Symfony\Component\Validator\Constraints as Assert;
+
 class FormationType extends AbstractType
 {
     /**
@@ -13,7 +20,12 @@ class FormationType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('formtitre')->add('formsoustitre')->add('formdate')->add('formdescription');
+        $builder
+        ->add('formtitre', TextType::class, array())
+        ->add('formsoustitre', TextType::class, array())
+        ->add('formdate', IntegeerType::class, array())
+        ->add('formdescription', TextType::class, array())
+        ->add('Enregistrer', SubmitType::class);
     }/**
      * {@inheritdoc}
      */

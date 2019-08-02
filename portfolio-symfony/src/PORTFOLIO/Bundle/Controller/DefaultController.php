@@ -8,9 +8,15 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 
-use PORTFOLIO\Entity\Projects;
+// use PORTFOLIO\Entity\Projects;
 use PORTFOLIO\Bundle\Entity\Competences;
-use PORTFOLIO\Entity\User;
+use PORTFOLIO\Bundle\Entity\Formation;
+use PORTFOLIO\Bundle\Entity\Experience;
+use PORTFOLIO\Bundle\Entity\Hobbies;
+use PORTFOLIO\Bundle\Entity\Language;
+use PORTFOLIO\Bundle\Entity\Projects;
+use PORTFOLIO\Bundle\Entity\User;
+// use PORTFOLIO\Entity\User;
 use PORTFOLIO\Form\UserType;
 
 class DefaultController extends Controller
@@ -97,7 +103,16 @@ class DefaultController extends Controller
      */
     public function formationAction()
     {
-        return $this->render('@PORTFOLIO/Default/formations.html.twig');
+        $formation = new Formation;
+        $repo = $this->getDoctrine()->getRepository(Formation::class);
+        $formation = $repo->findAll();
+
+        
+        $params = array(
+            'formation' => $formation
+        );
+
+        return $this->render('@PORTFOLIO/Default/formations.html.twig', $params);
     }
 
     /**

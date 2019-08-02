@@ -117,7 +117,7 @@ class UserController extends Controller
         return $this->redirectToRoute('user-competence');
     }
 
-// ------------ CRUD EXPERIENCE ----------------------
+// ------------ CRUD FORMATION ----------------------
 
 
 
