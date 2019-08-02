@@ -16,6 +16,9 @@ use PORTFOLIO\Bundle\Form\CompetencesType;
 
 class UserController extends Controller
 {
+
+// ------------ CRUD COMPETENCES ----------------------
+
     /** 
      * @Route("/user/competence/", name="user-competence")
      */
@@ -52,7 +55,7 @@ class UserController extends Controller
 
             $em->flush();
 
-            $request->getsession()->getFlashBag()->add('success', 'la compétence ' . $competence->getId() . ' a bien été ajouté !');
+            $request->getsession()->getFlashBag()->add('success', 'la compétence ' . $competence->getIdCompetence() . ' a bien été ajouté !');
             return $this->redirectToRoute('user-competence');
         }
 
@@ -64,7 +67,59 @@ class UserController extends Controller
         return $this->render('@PORTFOLIO/Admin/form-competence.html.twig', $params);
     }
 
-    
+    /** 
+     * @Route("/user/competence/update/{id}/", name="user-competence-update")
+     */
+    public function adminCompetenceUpdateAction($id, Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $competence = $em->find(Competences::class,$id);
+
+        $form = $this->createForm(CompetencesType::class, $competence);
+
+        $form->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid())
+        {
+            $em->persist($competence);
+
+            $em->flush();
+
+            $request->getSession()->getFlashBag()->add('success', 'La compétence' . $competence->getCptechnology() . ' a bien été modifiée !');
+            return $this->redirectToRoute('user-competence');
+        }
+
+        $params = array(
+            'id' => $id,
+            'competencesForm' => $form->createView(),
+            'title' => 'MODIFIER LA COMPETENCE ' . $competence->getCptechnology(),
+        );
+
+        return $this->render('@PORTFOLIO/Admin/form-competence.html.twig', $params);
+
+    }
+
+    /** 
+     * @Route("/user/competence/delete/{id}/", name="user-competence-delete")
+     */
+    public function adminCompetenceDeleteAction($id, Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $competence = $em->find(Competences::class,$id);
+
+        $em->remove($competence);
+        $em->flush();
+
+        $request->getSession()->getFlashBag()->add('success', 'La compétence N°' . $id . ' a bien été supprimé');
+
+        return $this->redirectToRoute('user-competence');
+    }
+
+// ------------ CRUD EXPERIENCE ----------------------
+
+
 
     /** 
      * @Route("/membre/profil/", name="profil")

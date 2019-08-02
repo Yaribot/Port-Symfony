@@ -11,6 +11,8 @@ use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
+use Symfony\Component\Validator\Constraints as Assert;
+
 // php bin/console generate:doctrine:form PORTFOLIOBundle:Competences
 
 class CompetencesType extends AbstractType
@@ -26,7 +28,15 @@ class CompetencesType extends AbstractType
             'constraints' => array(
                 new Assert\NotBlank(array(
                     'message' => 'Attention, veuillez renseigner ce champs !'
-                ))
+                )),
+                new Assert\Length(array(
+                    'max' => 20,
+                    'maxMessage' => 'Attention, veuillez renseignerau maximmum 20 caractères'
+                )),
+                new Assert\Regex(array(
+                    'pattern' => '/^[a-zA-Z-_0-9]+$/',
+                    'message' => 'Veuillez utiliser les lettres de A à Z et les chiffres de 0 à 9'
+                 ))
             )
         ))
         ->add('cplevel', IntegerType::class, array(
@@ -36,6 +46,10 @@ class CompetencesType extends AbstractType
                     'type' => 'integer',
                     'message' => 'Veuillez renseigner un chiffre'
                 ))
+            ),
+            'attr' => array(
+                'placeholder' => 'Ex : 50',
+                'class' => 'form-control'
             )
         ))
         ->add('Enregistrer', SubmitType::class);
