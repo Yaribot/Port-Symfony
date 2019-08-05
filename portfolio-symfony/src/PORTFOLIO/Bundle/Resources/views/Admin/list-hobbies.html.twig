@@ -1,0 +1,42 @@
+{% extends 'layout.html.twig' %}
+
+
+{% block title %}Portfolio - Hobbies{% endblock %}
+
+{% block content %}
+<div class="container col-xl-12"><br>
+    <div class="divadmin">
+        <br><h3 class="display-4 text-center">LISTE DES HOBBIES</h3><hr><br>
+        <table class="table table-dark col-md-6 offset-md-3">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Tirtre</th>
+                    <th>Description</th>
+                    <th>Icones</th>
+                    <th colspan="3">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for hb in hobby %}
+                <tr>
+                    <td>{{ hb.idhobbie }}</td>
+                    <td>{{ hb.hbhobbie }}</td>
+                    <td>{{ hb.hbdescription }}</td>
+                    <td>{{ hb.hbicon }}</td>
+
+
+                    
+                    {# <td><a href="{{ path('user-hobby-update', {'id': hb.idhobbie } ) }}" class="text text-warning"><i class="fas fa-edit"></i></a></td>
+                    <td><a href="{{ path('user-hobby-delete', {'id': hb.idhobbie } ) }}"  onclick="return confirm('Etes-vous sur de vouloir supprimer ce Hobby ? ')" class="text text-danger"><i class="fas fa-trash"></i></a></td> #}
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <div class="row m-4">
+            {# <a href="{{ path('user-add-Hobby') }}" class="btn btn-primary offset-md-3">Ajouter un hobby</a> #}
+        </div><br>
+    </div>
+</div>
+
+{% endblock %}

@@ -40,7 +40,9 @@ class Hobbies
      *
      * @ORM\Column(name="hbicon", type="string", length=255, nullable=false)
      */
-    private $hbicon;
+    private $hbicon= 'default.jpg';
+    // On ne mappe pas cette propriété car elle n'est pas liée à la base de donnée, elle va simplement nous permettre de manipuler la (les)photos d'un produit avant de l'enregistrer. 
+    private $file;
 
 
 

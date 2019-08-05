@@ -16,12 +16,14 @@
 
             <br><h3 class="display-4 text-center">Formations</h3><br><hr>
             {% for fr in formation %}
-            <div class="card">
-                <h4 class="card-header">{{ fr.formdate }}</h4> 
-                <div class="card-body">
-                    <h4 class="card-title">{{ fr.formtitre }}</h4>
-                    <h5 class="card-title">{{ fr.formsoustitre }}</h5>
-                    <p class="card-text">{{ fr.formdescription }}</p>
+            <div class="row">
+                <div class="card col-md-6 offset-md-3">
+                    <h4 class="card-header">{{ fr.formdate }}</h4> 
+                    <div class="card-body">
+                        <h4 class="card-title">{{ fr.formtitre }}</h4>
+                        <h5 class="card-title">{{ fr.formsoustitre }}</h5>
+                        <p class="card-text">{{ fr.formdescription }}</p>
+                    </div>
                 </div>
             </div><br>
             {% endfor %}

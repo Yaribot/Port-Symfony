@@ -1,1 +1,41 @@
 {% extends 'layout.html.twig' %}
+
+
+{% block content %}
+
+<div class="col-xl-12 title">
+        <h2>Mes Travaux<h2> 
+    </div>
+
+    <br>
+
+    <div class="col-xl-12 about">
+
+        <div class="container comp">
+
+            <br><h3 class="display-4 text-center">Réalisation</h3><br><hr>
+            <div class="album py-5 bg-light">
+                <div class="row">
+                {% for hb in hobby %}
+                    <div class="col-md-4">
+                        <div class="card mb-4 shadow-sm">
+                            <img src="{{ asset('photo/' ~ hb.hbicon) }}" class="card-img-top" alt="" width="100%" height="225" >
+                            {# <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="{{ hb.hbicon }}"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+                            <div class="card-body"> #}
+                            <h4 class="card-header">{{ hb.hbhobbie }}</h4>
+                            <p class="card-text">{{ hb.hbdescription }}</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                                </div>  
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+{% endblock %}

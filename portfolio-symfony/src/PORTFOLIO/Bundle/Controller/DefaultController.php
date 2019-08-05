@@ -147,6 +147,15 @@ class DefaultController extends Controller
      */
     public function hobbyAction()
     {
-        return $this->render('@PORTFOLIO/Default/hobbies.html.twig');
+        $hobby = new Hobbies;
+        $repo = $this->getDoctrine()->getRepository(Hobbies::class);
+        $hobby = $repo->findAll();
+
+        
+        $params = array(
+            'hobby' => $hobby
+        );
+
+        return $this->render('@PORTFOLIO/Default/hobbies.html.twig', $params);
     }
 }

@@ -1,0 +1,44 @@
+{% extends 'layout.html.twig' %}
+
+
+{% block title %}Portfolio - Formations{% endblock %}
+
+{% block content %}
+<div class="container col-xl-12"><br>
+    <div class="divadmin">
+        <br><h3 class="display-4 text-center">LISTE DES FORMATIONS</h3><hr><br>
+        <table class="table table-dark col-md-6 offset-md-3">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Tirtre</th>
+                    <th>Sous-titre</th>
+                    <th>Date</th>
+                    <th>Description</th>
+                    <th colspan="3">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for fr in formation %}
+                <tr>
+                    <td>{{ fr.idformation }}</td>
+                    <td>{{ fr.formtitre }}</td>
+                    <td>{{ fr.formsoustitre }}</td>
+                    <td>{{ fr.formdate }}</td>
+                    <td>{{ fr.formdescription }}</td>
+
+
+                    
+                    <td><a href="{{ path('user-formation-update', {'id': fr.idformation } ) }}" class="text text-warning"><i class="fas fa-edit"></i></a></td>
+                    <td><a href="{{ path('user-formation-delete', {'id': fr.idformation } ) }}"  onclick="return confirm('Etes-vous sur de vouloir supprimer la formation ? ')" class="text text-danger"><i class="fas fa-trash"></i></a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <div class="row m-4">
+            <a href="{{ path('user-add-formation') }}" class="btn btn-primary offset-md-3">Ajouter une formation</a>
+        </div><br>
+    </div>
+</div>
+
+{% endblock %}
