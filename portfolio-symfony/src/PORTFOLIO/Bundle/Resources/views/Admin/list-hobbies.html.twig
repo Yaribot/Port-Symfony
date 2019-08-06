@@ -27,14 +27,14 @@
 
 
                     
-                    {# <td><a href="{{ path('user-hobby-update', {'id': hb.idhobbie } ) }}" class="text text-warning"><i class="fas fa-edit"></i></a></td>
-                    <td><a href="{{ path('user-hobby-delete', {'id': hb.idhobbie } ) }}"  onclick="return confirm('Etes-vous sur de vouloir supprimer ce Hobby ? ')" class="text text-danger"><i class="fas fa-trash"></i></a></td> #}
+                    <td><a href="{{ path('user-hobby-update', {'id': hb.idhobbie } ) }}" class="text text-warning"><i class="fas fa-edit"></i></a></td>
+                    <td><a href="{{ path('user-hobby-delete', {'id': hb.idhobbie } ) }}"  onclick="return confirm('Etes-vous sur de vouloir supprimer ce Hobby ? ')" class="text text-danger"><i class="fas fa-trash"></i></a></td>
                 </tr>
                 {% endfor %}
             </tbody>
         </table>
         <div class="row m-4">
-            {# <a href="{{ path('user-add-Hobby') }}" class="btn btn-primary offset-md-3">Ajouter un hobby</a> #}
+            <a href="{{ path('user-add-hobby') }}" class="btn btn-primary offset-md-3">Ajouter un hobby</a>
         </div><br>
     </div>
 </div>

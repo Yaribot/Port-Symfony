@@ -42,6 +42,13 @@ class Contacts
      */
     private $email;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="message", type="text", length=500, nullable=false)
+     */
+    private $message;
+
 
 
     /**
@@ -115,7 +122,7 @@ class Contacts
 
         return $this;
     }
-
+    
     /**
      * Get email
      *
@@ -124,5 +131,31 @@ class Contacts
     public function getEmail()
     {
         return $this->email;
+    }
+    
+    
+    /**
+     * Set message
+     *
+     * @param string $message
+     *
+     * @return Contacts
+     */
+    public function setMessage($message)
+    {
+        $this->message = $message;
+        
+        return $this;
+    }
+
+
+    /**
+     * Get message
+     *
+     * @return string
+     */
+    public function getMessage()
+    {
+        return $this->message;
     }
 }

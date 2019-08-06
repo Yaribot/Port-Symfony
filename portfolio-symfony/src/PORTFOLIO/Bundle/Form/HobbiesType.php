@@ -8,6 +8,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -20,9 +21,15 @@ class HobbiesType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-        ->add('hbhobbie')
-        ->add('hbdescription')
-        ->add('hbicon');
+        ->add('hbhobbie', TextType::class, array())
+        ->add('hbdescription', TextType::class, array())
+        // ->add('hbicon');
+        ->add('file', FileType::class, array(
+            'required' => false,
+        ))
+        // ->add('name', SubmitType::class);
+
+        ->add('Enregistrer', SubmitType::class);
     }/**
      * {@inheritdoc}
      */

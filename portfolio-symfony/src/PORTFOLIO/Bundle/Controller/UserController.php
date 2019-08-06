@@ -13,11 +13,13 @@ use PORTFOLIO\Form\UserType;
 use PORTFOLIO\Bundle\Entity\Competences;
 use PORTFOLIO\Bundle\Entity\Formation;
 use PORTFOLIO\Bundle\Entity\Hobbies;
+use PORTFOLIO\Bundle\Entity\Experience;
 
 
 use PORTFOLIO\Bundle\Form\CompetencesType;
 use PORTFOLIO\Bundle\Form\FormationType;
 use PORTFOLIO\Bundle\Form\HobbiesType;
+use PORTFOLIO\Bundle\Form\ExperienceType;
 
 class UserController extends Controller
 {
@@ -222,6 +224,9 @@ public function adminFormationDeleteAction($id, Request $request)
     return $this->redirectToRoute('user-formation');
 }
 
+
+
+
 // ------------ END CRUD FORMATION ------------------
 
 
@@ -229,7 +234,7 @@ public function adminFormationDeleteAction($id, Request $request)
 // ------------ CRUD HOBBIES ----------------------
 
 /** 
- * @Route("/user/Hobby/", name="user-hobby")
+ * @Route("/user/hobby/", name="user-hobby")
  */
 public function UserHobbyAction()
 {
@@ -241,12 +246,204 @@ public function UserHobbyAction()
         'hobby' => $hobby
     );
     
-    return $this->render('@PORTFOLIO/Admin/list-Hobbies.html.twig', $params);
+    return $this->render('@PORTFOLIO/Admin/list-hobbies.html.twig', $params);
     
 }
 
 
+/** 
+ * @Route("/user/hobby/add", name="user-add-hobby")
+ */
+public function adminHobbyAddAction(Request $request)
+{
+    $hobby = new Hobbies;
+    
+    $form = $this->createForm(HobbiesType::class, $hobby);
+    
+    $form->handleRequest($request);
+    
+    if ($form->isSubmitted() && $form->isValid())
+    {
+        
+        $em = $this->getDoctrine()->getManager(); // On récup le manager 
+        $em->persist($hobby); // On enregistre dans le systeme l'objet
+        
+        $em->flush();
+        
+        $request->getsession()->getFlashBag()->add('success', 'le hobby ' . $hobby->getIdHobbie() . ' a bien été ajouté !');
+        return $this->redirectToRoute('user-hobby');
+    }
+    
+    $params = array(
+        'hobbyForm' => $form->createView(),
+        'title' => 'AJOUTER UN HOBBY'
+    );
+    
+    return $this->render('@PORTFOLIO/Admin/form-hobbies.html.twig', $params);
+}
+
+
+/** 
+ * @Route("/user/hobby/update/{id}/", name="user-hobby-update")
+ */
+public function adminHobbyUpdateAction($id, Request $request)
+{
+    $em = $this->getDoctrine()->getManager();
+    
+    $hobby = $em->find(Hobbies::class,$id);
+    
+    $form = $this->createForm(HobbiesType::class, $hobby);
+    
+    $form->handleRequest($request);
+    
+    if($form->isSubmitted() && $form->isValid())
+    {
+        $em->persist($hobby);
+        
+        $em->flush();
+        
+        $request->getSession()->getFlashBag()->add('success', 'Le hobby' . $hobby->getHbhobbie() . ' a bien été modifié !');
+        return $this->redirectToRoute('user-hobby');
+    }
+    
+    $params = array(
+        'id' => $id,
+        'hobbyForm' => $form->createView(),
+        'title' => 'MODIFIER LE HOBBY ' . $hobby->getHbhobbie(),
+    );
+    
+    return $this->render('@PORTFOLIO/Admin/form-hobbies.html.twig', $params);
+    
+}
+
+
+/** 
+ * @Route("/user/hobby/delete/{id}/", name="user-hobby-delete")
+ */
+public function adminHobbyDeleteAction($id, Request $request)
+{
+    $em = $this->getDoctrine()->getManager();
+    
+    $hobby = $em->find(Hobbies::class,$id);
+    
+    $em->remove($hobby);
+    $em->flush();
+    
+    $request->getSession()->getFlashBag()->add('success', 'Le hobby N°' . $id . ' a bien été supprimé');
+    
+    return $this->redirectToRoute('user-hobby');
+}
+
+
 // ------------ END CRUD HOBBIES ----------------------
+
+
+
+// ------------ CRUD EXPERIENCES ----------------------
+
+
+/** 
+ * @Route("/user/experience/", name="user-experience")
+ */
+public function UserExperienceAction()
+{
+    $repo = $this->getDoctrine()->getRepository(Experience::class);
+    $experience = $repo->findAll();
+    
+    
+    $params = array(
+        'experience' => $experience
+    );
+    
+    return $this->render('@PORTFOLIO/Admin/list-experiences.html.twig', $params);
+    
+}
+
+
+/** 
+ * @Route("/user/experience/add", name="user-add-experience")
+ */
+public function adminExperienceAddAction(Request $request)
+{
+    $experience = new Experience;
+    
+    $form = $this->createForm(ExperienceType::class, $experience);
+    
+    $form->handleRequest($request);
+    
+    if ($form->isSubmitted() && $form->isValid())
+    {
+        
+        $em = $this->getDoctrine()->getManager(); // On récup le manager 
+        $em->persist($experience); // On enregistre dans le systeme l'objet
+        
+        $em->flush();
+        
+        $request->getsession()->getFlashBag()->add('success', 'le hobby ' . $experience->getIdXp() . ' a bien été ajouté !');
+        return $this->redirectToRoute('user-experience');
+    }
+    
+    $params = array(
+        'experienceForm' => $form->createView(),
+        'title' => 'AJOUTER UNE EXPERIENCE'
+    );
+    
+    return $this->render('@PORTFOLIO/Admin/form-experiences.html.twig', $params);
+}
+
+
+/** 
+ * @Route("/user/experience/update/{id}/", name="user-experience-update")
+ */
+public function adminExperienceUpdateAction($id, Request $request)
+{
+    $em = $this->getDoctrine()->getManager();
+    
+    $experience = $em->find(Experience::class,$id);
+    
+    $form = $this->createForm(ExperienceType::class, $experience);
+    
+    $form->handleRequest($request);
+    
+    if($form->isSubmitted() && $form->isValid())
+    {
+        $em->persist($experience);
+        
+        $em->flush();
+        
+        $request->getSession()->getFlashBag()->add('success', 'L\' experience' . $experience->getXpemployer() . ' a bien été modifié !');
+        return $this->redirectToRoute('user-experience');
+    }
+    
+    $params = array(
+        'id' => $id,
+        'experienceForm' => $form->createView(),
+        'title' => 'MODIFIER L\' EXPERIENCE ' . $experience->getXpemployer(),
+    );
+    
+    return $this->render('@PORTFOLIO/Admin/form-experiences.html.twig', $params);
+    
+}
+
+
+/** 
+ * @Route("/user/experience/delete/{id}/", name="user-experience-delete")
+ */
+public function adminExperienceDeleteAction($id, Request $request)
+{
+    $em = $this->getDoctrine()->getManager();
+    
+    $experience = $em->find(Experience::class,$id);
+    
+    $em->remove($experience);
+    $em->flush();
+    
+    $request->getSession()->getFlashBag()->add('success', 'L\' experience N°' . $id . ' a bien été supprimé');
+    
+    return $this->redirectToRoute('user-experience');
+}
+
+// ------------ END CRUD EXPERIENCES ------------------
 
 
 /** 

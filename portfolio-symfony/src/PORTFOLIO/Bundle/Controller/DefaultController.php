@@ -7,17 +7,22 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\RedirectResponse;
+use Symfony\Component\HttpFoundation\Request;
 
 // use PORTFOLIO\Entity\Projects;
 use PORTFOLIO\Bundle\Entity\Competences;
 use PORTFOLIO\Bundle\Entity\Formation;
 use PORTFOLIO\Bundle\Entity\Experience;
 use PORTFOLIO\Bundle\Entity\Hobbies;
+use PORTFOLIO\Bundle\Entity\Contacts;
 use PORTFOLIO\Bundle\Entity\Language;
 use PORTFOLIO\Bundle\Entity\Projects;
 use PORTFOLIO\Bundle\Entity\User;
+
+
 // use PORTFOLIO\Entity\User;
 use PORTFOLIO\Form\UserType;
+use PORTFOLIO\Bundle\Form\ContactsType;
 
 class DefaultController extends Controller
 {
@@ -95,7 +100,17 @@ class DefaultController extends Controller
      */
     public function experienceAction()
     {
-        return $this->render('@PORTFOLIO/Default/experiences.html.twig');
+
+        $experience = new Experience;
+        $repo = $this->getDoctrine()->getRepository(Experience::class);
+        $experience = $repo->findAll();
+
+        
+        $params = array(
+            'experience' => $experience
+        );
+
+        return $this->render('@PORTFOLIO/Default/experiences.html.twig', $params);
     }
 
     /**
@@ -137,9 +152,37 @@ class DefaultController extends Controller
     /**
      * @Route("/contact/", name="contact")
      */
-    public function contactAction()
+    public function contactAction(Request $request)
     {
-        return $this->render('@PORTFOLIO/Default/contact.html.twig');
+        $contacts = new Contacts;
+
+        $form = $this->createForm(ContactsType::class, $contacts);
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid())
+        {
+
+            $em = $this->getDoctrine()->getManager(); // On récup le manager 
+            $em->persist($contacts); // On enregistre dans le systeme l'objet
+
+            $em->flush();
+
+            $request->getsession()->getFlashBag()->add('success', 'Merci ' . $contacts->getPrenom() . ', Je vous répondrai dans les plus brefs délais !');
+            return $this->redirectToRoute('contact');
+
+        }
+
+
+        $params = array(
+            'contactForm' => $form->createView(),
+            'prenom' => $prenom,
+            'nom' => $nom,
+            'email' => $email,
+            'title' => 'CONTACTS'
+        );
+
+        return $this->render('@PORTFOLIO/Default/contact.html.twig', $params);
     }
 
     /**

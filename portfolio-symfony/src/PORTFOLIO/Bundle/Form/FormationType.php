@@ -86,7 +86,7 @@ class FormationType extends AbstractType
                     'min' => 3,
                     'minMessage' => 'Attention, veuillez renseigner au minimum 3 caractères',
                     'max' => 200,
-                    'maxMessage' => 'Attention, veuillez renseigner au maximmum 20 caractères'
+                    'maxMessage' => 'Attention, veuillez renseigner au maximmum 200 caractères'
                 ))
             )
         ))

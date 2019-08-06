@@ -1,1 +1,35 @@
 {% extends 'layout.html.twig' %}
+
+{% block content %}
+
+<div class="col-xl-12 title">
+        <h2>Mes Expériences<h2> 
+    </div>
+
+    <br>
+
+
+
+    <div class="col-xl-12 about">
+
+        <div class="container comp">
+
+            <br><h3 class="display-4 text-center">Expériences</h3><br><hr>
+            {% for ex in experience %}
+            <div class="row">
+                <div class="card col-md-6 offset-md-3">
+                    <h4 class="card-header">{{ ex.xpyear1 }} . {{ ex.xpyear2 }}</h4> 
+                    <div class="card-body">
+                        <h4 class="card-title">{{ ex.xpemployer }}</h4>
+                        <h5 class="card-title">{{ ex.xpfunction }}</h5>
+                        <p class="card-text">{{ ex.xpresume }}</p>
+                    </div>
+                </div>
+            </div><br>
+            {% endfor %}
+
+
+        </div>
+    </div>
+
+{% endblock %}

@@ -22,16 +22,16 @@ class Experience
     private $idxp;
 
     /**
-     * @var \DateTime
+     * @var integer
      *
-     * @ORM\Column(name="xpyear1", type="date", nullable=false)
+     * @ORM\Column(name="xpyear1", type="integer", nullable=false)
      */
     private $xpyear1;
 
     /**
-     * @var \DateTime
+     * @var integer
      *
-     * @ORM\Column(name="xpyear2", type="date", nullable=false)
+     * @ORM\Column(name="xpyear2", type="integer", nullable=false)
      */
     private $xpyear2;
 
