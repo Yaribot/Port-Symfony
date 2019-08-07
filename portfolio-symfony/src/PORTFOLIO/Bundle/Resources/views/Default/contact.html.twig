@@ -11,9 +11,9 @@
 <div class="col-xl-12 about">
 
     <div class="container comp">
-        <h3 class="display-4 text-center">Pour me contacter rien de plus simple !!</h3><hr><br>
+        <h3 class="display-4 text-center">{{ title }}</h3><hr><br>
 
-        <form class="col-md-4 offset-md-4 text-center" method="post" action=""> 
+        {# <form class="col-md-4 offset-md-4 text-center" method="post" action=""> 
             <div class="form-group">
                 <label for="exampleInputEmail1">Prénom</label>
                 <input type="text" class="form-control" id="prenom" name="prenom" value="{{ prenom }}" placeholder="Enter prenom">
@@ -28,7 +28,10 @@
             </div>
             
             <button type="submit" class="btn btn-dark">Envoyer</button>
-        </form><br>
+        </form><br> #}
+
+        {{ form(contactForm) }}
+
     </div>
 </div>
 

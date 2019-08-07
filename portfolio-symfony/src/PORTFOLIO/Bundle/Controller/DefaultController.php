@@ -176,10 +176,7 @@ class DefaultController extends Controller
 
         $params = array(
             'contactForm' => $form->createView(),
-            'prenom' => $prenom,
-            'nom' => $nom,
-            'email' => $email,
-            'title' => 'CONTACTS'
+            'title' => 'Pour me contacter, rien de plus simple !'
         );
 
         return $this->render('@PORTFOLIO/Default/contact.html.twig', $params);

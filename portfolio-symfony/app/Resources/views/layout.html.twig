@@ -49,6 +49,20 @@
                 <a class="nav-link" href="{{ path('contact') }}">Contact</a>
             </li>
 
+            {% if is_granted('ROLE_ADMIN') %}
+            <li class="dropdown">	
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Admin
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <li><a class="dropdown-item" href="{{ path('user-competence') }}"><i class="fas fa-wrench"></i>&nbsp;Gestion Compétences</a></li>
+                    <li><a class="dropdown-item" href="{{ path('user-formation') }}"><i class="fas fa-wrench"></i>&nbsp;Gestion Formations</a></li>
+                    <li><a class="dropdown-item" href="{{ path('user-experience') }}"><i class="fas fa-wrench"></i>&nbsp;Gestion Expériences</a></li>
+                    <li><a class="dropdown-item" href="{{ path('user-hobby') }}"><i class="fas fa-wrench"></i>&nbsp;Gestion Travaux</a></li>
+                </ul>
+            </li> 
+            {% endif %}
+
         </ul>
         {% if is_granted('ROLE_ADMIN') %}
             <form class="form-inline my-2 my-md-0">
