@@ -41,7 +41,7 @@ class Hobbies
      *
      * @ORM\Column(name="hbicon", type="string", length=255, nullable=false)
      */
-    private $hbicon='default.jpg';
+    private $hbicon="default.jpg";
     // On ne mappe pas cette propriété car elle n'est pas liée à la base de donnée, elle va simplement nous permettre de manipuler la (les)photos d'un produit avant de l'enregistrer. 
     private $file;
 
@@ -163,23 +163,32 @@ class Hobbies
         }
 
         // Récupère le nom de la photo pour le renomer.
-        $hbicon = $this -> renameFile($this->file->getClientOriginalName());
+        $hbhobbie = $this -> renameFile($this->file->getClientOriginalName());
         //$name = renameFile('avatar.jpg') 
 
         // On enregistre en BDD le nouveaux nom ede la photo : 
-        $this->photo = $hbicon;
+        $this->$hbicon = $hbhobbie;
 
         // Enfin il faut déplacer la photo dans son dossier définitif.
-        $this->file->move($this->photoDir(), $hbicon);
+        $this->file->move($this->photoDir(), $hbhobbie);
     }
-    public function renameFile($hbicon)
+    public function renameFile($hbhobbie)
     {
         // avatar.jpg
         // file_150000000_4568_avatar.jpg
-        return 'file_' . time() . '_' . rand(1, 9999) . $hbicon;
+        return 'file_' . time() . '_' . rand(1, 9999) . $hbhobbie;
     }
     public function photoDir()
     {
-        return __DIR__ . '{{ asset("photo") }}';
+        return __DIR__ . '../../../../web/photo';
+    }
+
+    public function removePhoto()
+    {
+        if(file_exists($this->photoDir() . '/' . $this->hbicon && $this->photo !='default.jpg'))
+        {
+            unlink($this->photoDir() . '/' . $this->photo);
+        }
+        // Si le fichier existe alors on le supprime.
     }
 }
