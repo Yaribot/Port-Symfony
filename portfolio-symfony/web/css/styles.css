@@ -38,29 +38,97 @@ h2{
 .about ul{
     margin-bottom: 0;
 }
-/* --------------------------- PARALLAX EFFECT --------------------------------*/
-/* .imgTitle{
-    height:30em;
-    overflow:hidden;
-    position:relative;
+/* --------------------------- COMPETENCES FORM --------------------------------*/
+.ajout_form {
+	background-color: white;
+	border-radius: 15px;
+    box-shadow: -1px -5px 19px 0px rgba(0,0,0,0.37);
 }
-.imgTitle img{
-    width:100%;
-    min-height:500px;
-    max-width:1500px;
-    left:50%;
-    -webkit-transform: translate(-50%, -10%);
-    -ms-transform: translate(-50%, -10%);
-    transform: translate(-50%, -10%);
-    position:absolute;
-} */
-/* --------------------------- END PARALLAX EFFECT --------------------------------*/
+#portfolio_bundle_competences_cptechnology {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+#portfolio_bundle_competences_cplevel {
+	width: 100%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	display: inline-block;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;
+}
+#portfolio_bundle_competences_Enregistrer {
+	width: 100%;
+	background-color: #3279a8;
+	color: white;
+	padding: 14px 20px;
+	margin: 8px 0;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+}
+/* --------------------------- END COMPETENCES FORM --------------------------------*/
+
+
+/* --------------------------- FORMATION FORM --------------------------------*/
+#portfolio_bundle_formation_formtitre {
+	width: 100%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	display: inline-block;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;
+}
+#portfolio_bundle_formation_formsoustitre {
+	width: 100%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	display: inline-block;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;
+}
+#portfolio_bundle_formation_formdate {
+	width: 100%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	display: inline-block;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;
+}
+#portfolio_bundle_formation_formdescription {
+	width: 100%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	display: inline-block;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;
+}
+#portfolio_bundle_formation_Enregistrer {
+	width: 100%;
+	background-color: #3279a8;
+	color: white;
+	padding: 14px 20px;
+	margin: 8px 0;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+}
+/* --------------------------- END FORMATION FORM --------------------------------*/
 
 /* --------------------------- SKILLBAR EFFECT --------------------------------*/
 
 
 .skillbar {
-    position:relative;
+	position:relative;
 	display:block;
 	margin-bottom:15px;
 	width:100%;
@@ -137,6 +205,7 @@ border-bottom-left-radius:3px;
 
 .divadmin{
 	background: white;
+	border-radius: 15px;
 }
 
 /*---------------------------- END ADMIN CSS---------------------------------------*/
