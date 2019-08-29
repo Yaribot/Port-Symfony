@@ -8,7 +8,16 @@
 <br><div class="container col-xl-6 ajout_form"><br>
     <h3 class="display-4 text-center">{{ title }}</h3><hr><br>
     <div class="container col-xl-6">
-        {{ form(hobbyForm) }}
+        {{ form_start(hobbyForm) }}
+            <div class="form-group">
+                {{ form_label(hobbyForm.hbhobbie, 'Nom du projet' )}}
+                {{ form_widget(hobbyForm.hbhobbie, {'attr': {'class': 'form-control'}}) }}
+                {{ form_label(hobbyForm.hbdescription, 'Description' )}}
+                {{ form_widget(hobbyForm.hbdescription, {'attr': {'class': 'form-control'}}) }}
+                {# {{ form_label(hobbyForm.file, 'Choisir une image')}}
+                {{ form_widget(hobbyForm.file, {'label':'Choisir une image'}, {'attr': {'class': 'fichier'}} ) }} #}
+            </div>
+        {{ form_end(hobbyForm) }}
     </div><br>
 </div><br>
 

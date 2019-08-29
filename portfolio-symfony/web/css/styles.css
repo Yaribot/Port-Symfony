@@ -61,42 +61,7 @@ h2{
 
 
 /* --------------------------- FORMATION FORM --------------------------------*/
-#portfolio_bundle_formation_formtitre {
-	width: 100%;
-	padding: 12px 20px;
-	margin: 8px 0;
-	display: inline-block;
-	border: 1px solid #ccc;
-	border-radius: 4px;
-	box-sizing: border-box;
-}
-#portfolio_bundle_formation_formsoustitre {
-	width: 100%;
-	padding: 12px 20px;
-	margin: 8px 0;
-	display: inline-block;
-	border: 1px solid #ccc;
-	border-radius: 4px;
-	box-sizing: border-box;
-}
-#portfolio_bundle_formation_formdate {
-	width: 100%;
-	padding: 12px 20px;
-	margin: 8px 0;
-	display: inline-block;
-	border: 1px solid #ccc;
-	border-radius: 4px;
-	box-sizing: border-box;
-}
-#portfolio_bundle_formation_formdescription {
-	width: 100%;
-	padding: 12px 20px;
-	margin: 8px 0;
-	display: inline-block;
-	border: 1px solid #ccc;
-	border-radius: 4px;
-	box-sizing: border-box;
-}
+
 #portfolio_bundle_formation_Enregistrer {
 	width: 100%;
 	background-color: #3279a8;
@@ -111,51 +76,7 @@ h2{
 
 
 /* --------------------------- EXPERIENCE FORM --------------------------------*/
-#portfolio_bundle_experience_xpyear1{
-	width: 100%;
-	padding: 12px 20px;
-	margin: 8px 0;
-	display: inline-block;
-	border: 1px solid #ccc;
-	border-radius: 4px;
-	box-sizing: border-box;
-}
-#portfolio_bundle_experience_xpyear2{
-	width: 100%;
-	padding: 12px 20px;
-	margin: 8px 0;
-	display: inline-block;
-	border: 1px solid #ccc;
-	border-radius: 4px;
-	box-sizing: border-box;
-}
-#portfolio_bundle_experience_xpfunction{
-	width: 100%;
-	padding: 12px 20px;
-	margin: 8px 0;
-	display: inline-block;
-	border: 1px solid #ccc;
-	border-radius: 4px;
-	box-sizing: border-box;
-}
-#portfolio_bundle_experience_xpemployer{
-	width: 100%;
-	padding: 12px 20px;
-	margin: 8px 0;
-	display: inline-block;
-	border: 1px solid #ccc;
-	border-radius: 4px;
-	box-sizing: border-box;
-}
-#portfolio_bundle_experience_xpresume{
-	width: 100%;
-	padding: 12px 20px;
-	margin: 8px 0;
-	display: inline-block;
-	border: 1px solid #ccc;
-	border-radius: 4px;
-	box-sizing: border-box;
-}
+
 #portfolio_bundle_experience_Enregistrer{
 	width: 100%;
 	background-color: #3279a8;
@@ -169,25 +90,8 @@ h2{
 /* --------------------------- END EXPERIENCE FORM --------------------------------*/
 
 
-/* --------------------------- EXPERIENCE FORM --------------------------------*/
-#portfolio_bundle_hobbies_hbhobbie{
-	width: 100%;
-	padding: 12px 20px;
-	margin: 8px 0;
-	display: inline-block;
-	border: 1px solid #ccc;
-	border-radius: 4px;
-	box-sizing: border-box;
-}
-#portfolio_bundle_hobbies_hbdescription{
-	width: 100%;
-	padding: 12px 20px;
-	margin: 8px 0;
-	display: inline-block;
-	border: 1px solid #ccc;
-	border-radius: 4px;
-	box-sizing: border-box;
-}
+/* --------------------------- HOBBY FORM --------------------------------*/
+
 #portfolio_bundle_hobbies_file{
 	width: 0.1px;
 	height: 0.1px;
@@ -196,16 +100,17 @@ h2{
 	position: absolute;
 	z-index: -1;
 }
-#portfolio_bundle_hobbies > div:nth-child(3) > label:nth-child(1){
+div.container:nth-child(5) > form:nth-child(1) > div:nth-child(2) > label:nth-child(1){
 	width: 100%;
 	background-color: #32a898;
 	color: white;
+	text-align: center;
 	padding: 14px 20px;
 	margin: 8px 0;
 	border: none;
 	border-radius: 4px;
 	cursor: pointer;
-}
+} 
 #portfolio_bundle_hobbies_Enregistrer{
 	width: 100%;
 	background-color: #3279a8;
@@ -216,7 +121,7 @@ h2{
 	border-radius: 4px;
 	cursor: pointer;
 }
-/* --------------------------- END EXPERIENCE FORM --------------------------------*/
+/* --------------------------- END HOBBY FORM --------------------------------*/
 
 
 /* --------------------------- SKILLBAR EFFECT --------------------------------*/

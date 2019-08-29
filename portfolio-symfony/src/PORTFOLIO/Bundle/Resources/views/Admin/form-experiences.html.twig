@@ -8,7 +8,20 @@
 <br><div class="container col-xl-6 ajout_form"><br>
     <h3 class="display-4 text-center">{{ title }}</h3><hr><br>
     <div class="container col-xl-6">
-        {{ form(experienceForm) }}
+        {{ form_start(experienceForm) }}
+            <div class="form-group">
+                {{ form_label(experienceForm.xpemployer, 'Nom de l\'entreprise' )}}
+                {{ form_widget(experienceForm.xpemployer, {'attr': {'class': 'form-control'}}) }}
+                {{ form_label(experienceForm.xpfunction, 'Durée' )}}
+                {{ form_widget(experienceForm.xpfunction, {'attr': {'class': 'form-control'}}) }}
+                {{ form_label(experienceForm.xpresume, 'Résumé' )}}
+                {{ form_widget(experienceForm.xpresume, {'attr': {'class': 'form-control'}}) }}
+                {{ form_label(experienceForm.xpyear1, 'Année de début' )}}
+                {{ form_widget(experienceForm.xpyear1, {'attr': {'class': 'form-control'}}) }}
+                {{ form_label(experienceForm.xpyear2, 'Année de fin' )}}
+                {{ form_widget(experienceForm.xpyear2, {'attr': {'class': 'form-control'}}) }}
+            </div>
+        {{ form_end(experienceForm) }}
     </div><br>
 </div><br>
 
