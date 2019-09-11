@@ -131,6 +131,20 @@ div.container:nth-child(5) > form:nth-child(1) > div:nth-child(2) > label:nth-ch
 /* --------------------------- END HOBBY FORM --------------------------------*/
 
 
+/* --------------------------- CONTACT FORM --------------------------------*/
+#portfolio_bundle_contacts_Enregistrer{
+	width: 100%;
+	background-color: #3279a8;
+	color: white;
+	padding: 14px 20px;
+	margin: 8px 0;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+}
+/* --------------------------- END CONTACT FORM --------------------------------*/
+
+
 /* --------------------------- SKILLBAR EFFECT --------------------------------*/
 
 
