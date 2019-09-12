@@ -24,7 +24,7 @@ h2{
     font-family: 'Fredericka the Great', cursive;
 }
 
-/* lien connexion (en dessous du N) */
+/* lien connexion (musique) */
 .title a{
 	opacity: 0;
 	margin-left: 18%;
@@ -46,6 +46,19 @@ h2{
 
 .about ul{
     margin-bottom: 0;
+}
+
+figure .img_gallery{
+	display: flex;
+	justify-content: space-around;
+}
+.img-fluid{
+	height: 13rem;
+	width: 30rem;
+}
+
+.bg_gallery{
+	background-color: #fffdf7;
 }
 /* --------------------------- COMPETENCES FORM --------------------------------*/
 .ajout_form {
