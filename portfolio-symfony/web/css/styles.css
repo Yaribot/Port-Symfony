@@ -48,6 +48,7 @@ h2{
     margin-bottom: 0;
 }
 
+/* --------------------------- GALLERY --------------------------------*/
 figure .img_gallery{
 	display: flex;
 	justify-content: space-around;
@@ -60,6 +61,8 @@ figure .img_gallery{
 .bg_gallery{
 	background-color: #fffdf7;
 }
+/* --------------------------- END GALLERY --------------------------------*/
+
 /* --------------------------- COMPETENCES FORM --------------------------------*/
 .ajout_form {
 	background-color: white;
